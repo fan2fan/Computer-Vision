@@ -5,7 +5,7 @@
 //int main(int argc, char** argv)
 //{
 
-//    IplImage *Img = cvLoadImage("C:/fanfanImage/3.jpg", 1); // 1 means show in RGB style 
+//    IplImage *Img = cvLoadImage("image.jpg", 1); // 1 means show in RGB style 
 //    // create a window and named as "Image"
 //    cvNamedWindow("Image",1);
 //    // show the image
@@ -26,7 +26,7 @@ using namespace cv;
 int main()
 {
     //load a image
-    Mat image = imread("image.png");
+    Mat image = imread("image.jpg");
     
     //create a window named "My Image"
     namedWindow("My Image");
