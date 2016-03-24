@@ -1,76 +1,47 @@
 ﻿//#include<highgui.h>
 //#include<qstring.h>
 
+// C Version
 //int main(int argc, char** argv)
 //{
-//    //ctrl+D删除行，ctrl + shift + ->自动完成，ctrl+C+up向上复制，ctrl+i格式化代码L
-//    //插入行（向下）ctrl+enter（向上）ctrl+shift+enter，复制行ctrl+c+，收缩ctrl+<,伸展ctrl+>
-//    //IplImage *Img = cvLoadImage("C:/fanfanImage/3.jpg", 1);
-//    //下面是打开中文路径的方法
-//    //    IplImage *Img = cvLoadImage(QString("C:/fanfanImage/大圣归来.png")
-//    //.toLocal8Bit(), 1);
-//    IplImage *Img = cvLoadImage("C:/fanfanImage/Monkey_King0.png", 1);
-//    //创建窗口,并命名为Image
+
+//    IplImage *Img = cvLoadImage("C:/fanfanImage/3.jpg", 1); // 1 means show in RGB style 
+//    // create a window and named as "Image"
 //    cvNamedWindow("Image",1);
-//    //显示图像
+//    // show the image
 //    cvShowImage("Image",Img);
-//    //等待按键，按任意键结束
+//    //wait
 //    cvWaitKey(0);
-//    //销毁窗口
+//    //destroy the window
 //    cvDestroyWindow("Image");
-//    //释放图像
+//    //realease the image and memory
 //    cvReleaseImage(&Img);
 //    return 0;
 //}
 
-//C++版本1
-//#include <opencv2/highgui/highgui.hpp>
-//#include <qstring.h>
-
-//int main()
-//{
-//    //读取文件，首先创建一个Mat类，名字叫image，然后用imread读取图片
-//    //cv表示一个命名空间，namedWindow为其其中定义的函数
-
-//    cv::Mat image=cv::imread("C:/fanfanImage/2.jpg");
-//    //创建图像显示窗口叫"My Image"
-//    cv::namedWindow("My Image");
-//    //利用imshow函数显示图片
-//    cv::imshow("My Image",image);
-//    //等待直到用户相应，waitKey函数是等待函数，可以设定窗口显示的时间。若为0，则是等待用户相应。
-//    cv::waitKey(0);
-//    //返回1
-//    return 1;
-//}
-
-//Copy CopyTo Clone CloneImage
-//C++版本2
+// C++ Version
 #include <opencv2/highgui/highgui.hpp>
 #include <qstring.h>
 using namespace cv;
 int main()
 {
-    /**
-    读取文件，首先创建一个Mat类，名字叫image，然后用imread读取图片
-    不支持中文
-    cv表示一个命名空间，namedWindow为其其中定义的函数P
-    Move line up: alt+UP Move line down: alt+Down  Go to line: ctrl+L
-    把pro文件的CONFIG += console注释掉可以不显示控制台
-    **/
-    //    //打开中文路径的文件
-    //    Mat image = imread(String((const char*)QString("C:/fanfanImage/大圣归来.png")
-    //                              .toLocal8Bit()));
-    Mat image = imread("C:/fanfanImage/MonKey_King0.png");
-    //创建图像显示窗口叫"My Image"
+    //load a image
+    Mat image = imread("image.png");
+    
+    //create a window named "My Image"
     namedWindow("My Image");
+    //move the window to (0,0) coordinate of the screen
     moveWindow("My Image",0,0);
-    //resizeWindow("My Image",600,300);
-    //利用imshow函数显示图片
+    //resize the window, the width is 600 pixels & the height is 300 pixels
+    resizeWindow("My Image",600,300);
+    //show the image
     imshow("My Image",image);
-    //等待直到用户相应，waitKey函数是等待函数，可以设定窗口显示的时间。若为0，则是等待用户相应。
+    //wait
     waitKey(0);
+    //destory all windows created
     destroyAllWindows();
+    //release the image and memory
     image.release();
-    //返回1
+    
     return 1;
 }
