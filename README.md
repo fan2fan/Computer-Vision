@@ -1,2 +1,2 @@
 # Computer-Vision
-application about OpenCV
+show an image with OpenCV
